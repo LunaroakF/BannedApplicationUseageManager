@@ -430,7 +430,6 @@ namespace BannedApplicationUseageManager
                 }
                 //System.Threading.Thread.Sleep(200);
             }
-
         }
         public int CountSe(int pai, int zuo) {
             int result = 0;
