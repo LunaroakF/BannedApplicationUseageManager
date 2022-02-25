@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.IO;
 using System.Collections;
-using System.Threading.Tasks;
 using System.Threading;
 
 namespace BannedApplicationUseageManager
