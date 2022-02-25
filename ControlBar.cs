@@ -17,26 +17,20 @@ namespace BannedApplicationUseageManager
 {
     public partial class ControlBar : Form
     {
-
-        
         private const byte VK_VOLUME_MUTE = 0xAD;
         private const byte VK_VOLUME_DOWN = 0xAE;
         private const byte VK_VOLUME_UP = 0xAF;
         private const UInt32 KEYEVENTF_EXTENDEDKEY = 0x0001;
         private const UInt32 KEYEVENTF_KEYUP = 0x0002;
-
         [DllImport("user32.dll")]
         static extern void keybd_event(byte bVk, byte bScan, UInt32 dwFlags, UInt32 dwExtraInfo);
-
         [DllImport("user32.dll")]
         static extern Byte MapVirtualKey(UInt32 uCode, UInt32 uMapType);
-
         public ControlBar()
         {
             InitializeComponent();
             System.Windows.Forms.Control.CheckForIllegalCrossThreadCalls = false;
         }
-
         private void ControlBar_FormClosing(object sender, FormClosingEventArgs e)
         {
             timer1.Enabled = false;
@@ -60,7 +54,6 @@ namespace BannedApplicationUseageManager
                 Bools.zuo = rd2.Next(1, 9);
             }
         }
-
         private void ControlBar_Load(object sender, EventArgs e)
         {
             this.TopMost = true;
@@ -105,17 +98,14 @@ namespace BannedApplicationUseageManager
         {
             this.Log.Text = Bools.Log;
         }
-
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/LunaroakF/BannedApplicationUseageManager");
         }
-
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/LunaroakF/BannedApplicationUseageManager");
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             //MessageBox.Show(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
@@ -154,24 +144,17 @@ namespace BannedApplicationUseageManager
                 this.label4.Visible = false;
                 MessageBox.Show("保存成功", "完成", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
             else
             { 
             MessageBox.Show("凭据不工作", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void 详细_Click(object sender, EventArgs e)
         {
-
         }
-
-
         private void label5_Click(object sender, EventArgs e)
         {
-
         }
-
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             string a = "计时";
@@ -188,12 +171,9 @@ namespace BannedApplicationUseageManager
                 timela.Text = a + "40" + b;
             else if (trackBar1.Value == 5)
                 timela.Text = a + "50" + b;
-
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
-            
             groupBox3.Enabled = false;
             if (trackBar1.Value == 0)
             {
@@ -234,7 +214,6 @@ namespace BannedApplicationUseageManager
             timer1.Enabled = true;
             this.Text = Bools.ControlBarName+" - " + Bools.remaintime.ToString() + " 秒剩余";
         }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             Bools.remaintime--;
@@ -271,7 +250,6 @@ namespace BannedApplicationUseageManager
                 Exec("shutdown -s -f -t 0");
             }
         }
-
         public static void Mute()
         {
             keybd_event(VK_VOLUME_MUTE, MapVirtualKey(VK_VOLUME_MUTE, 0), KEYEVENTF_EXTENDEDKEY, 0);
@@ -300,12 +278,9 @@ namespace BannedApplicationUseageManager
             {
             }
         }
-
         private void 定时_Click(object sender, EventArgs e)
         {
-
         }
-
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox2.Checked)
@@ -317,12 +292,9 @@ namespace BannedApplicationUseageManager
                 this.TopMost = false;
             }
         }
-
         private void 幸运观众_Click(object sender, EventArgs e)
         {
-
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             if (button3.Text == "开始")
@@ -484,7 +456,6 @@ namespace BannedApplicationUseageManager
             else
                 return true;
         }
-
         public void HistoryWrite(string Name)
         {
             if (checkBox3.Checked)
