@@ -62,7 +62,7 @@ namespace BannedApplicationUseageManager
             int add = 1;
             string[] Day = new string[] { "星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六" };
             string week = Day[Convert.ToInt32(DateTime.Now.DayOfWeek.ToString("d"))].ToString();
-            if (week == "星期六")
+            if (week == Bools.PassWeek)
                 add = 2;
             string date= DateTime.Now.AddDays(add).ToString("MM月dd日");
             this.groupBox4.Text = "将于"+date+"午间上台讲数学题的同学位于";
@@ -86,7 +86,7 @@ namespace BannedApplicationUseageManager
                     catch
                     {
                     }
-                    if ((line.Length - i - 1) == 40)
+                    if ((line.Length - i - 1) == Bools.NotRepeat)
                     {
                         main = "------------------------------" + Environment.NewLine + main;
                     }
@@ -378,7 +378,7 @@ namespace BannedApplicationUseageManager
                 }
                 else
                 {
-                    label11.Text = "[40次内重复]"+name;
+                    label11.Text = "["+Bools.NotRepeat.ToString()+"次内重复]"+name;
                     repeat.Visible = true;
                     button3.Text = "请等候...";
                     button3.Enabled = false;
@@ -409,7 +409,8 @@ namespace BannedApplicationUseageManager
                     {
                         label9.Text = "第" + Bools.pai.ToString() + "条";
                         label10.Text = "第" + Bools.zuo.ToString() + "座";
-                        System.Threading.Thread.Sleep(10);
+
+                        System.Threading.Thread.Sleep(50);
                     }
                     int se = CountSe(Bools.pai, Bools.zuo);
                     string name = NameOutPut(se);
@@ -422,6 +423,9 @@ namespace BannedApplicationUseageManager
                         button3.Enabled = true;
                         repeat.Visible = false;
                     }
+                    else {
+                        label11.Text = "[" + Bools.NotRepeat.ToString() + "次内重复]" + name;
+                    }
                 }
                 if (yes)
                 {
@@ -430,7 +434,6 @@ namespace BannedApplicationUseageManager
                 }
                 //System.Threading.Thread.Sleep(200);
             }
-
         }
         public int CountSe(int pai, int zuo) {
             int result = 0;
@@ -465,7 +468,7 @@ namespace BannedApplicationUseageManager
                     int add = 1;
                     string[] Day = new string[] { "星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六" };
                     string week = Day[Convert.ToInt32(DateTime.Now.DayOfWeek.ToString("d"))].ToString();
-                    if (week == "星期六")
+                    if (week == Bools.PassWeek)
                         add = 2;
                     string date = DateTime.Now.AddDays(add).ToString("MM月dd日");
                     string text = File.ReadAllText(@Bools.RunPlace + "BAUM_Settings/math_history.inf");

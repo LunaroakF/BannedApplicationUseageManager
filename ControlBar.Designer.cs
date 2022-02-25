@@ -171,7 +171,7 @@
             this.groupBox2.Size = new System.Drawing.Size(283, 53);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "密钥/密码/加密狗键入";
+            this.groupBox2.Text = "密钥/密码键入";
             // 
             // PasswordBox
             // 

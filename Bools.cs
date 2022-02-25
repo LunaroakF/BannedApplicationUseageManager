@@ -20,6 +20,8 @@ namespace BannedApplicationUseageManager
         public static int oldtimer2int = 2;
         public static int oldtimer3int = 2;
         public static int zuo = 0;
+        public static int NotRepeat = 40;
+        public static string PassWeek = "星期六";
         public static string driveName = null;
     }
 }
