@@ -17,6 +17,7 @@ namespace BannedApplicationUseageManager
 {
     public partial class ControlBar : Form
     {
+        //按键初始化
         private const byte VK_VOLUME_MUTE = 0xAD;
         private const byte VK_VOLUME_DOWN = 0xAE;
         private const byte VK_VOLUME_UP = 0xAF;
@@ -29,36 +30,29 @@ namespace BannedApplicationUseageManager
         public ControlBar()
         {
             InitializeComponent();
+            //跨线程调用窗体组件无视警告
             System.Windows.Forms.Control.CheckForIllegalCrossThreadCalls = false;
         }
         private void ControlBar_FormClosing(object sender, FormClosingEventArgs e)
         {
             timer1.Enabled = false;
             Bools.remaintime = 0;
-
             Bools.IsControlBarCreated = false;
             Bools.IsEnable = true;
         }
     public void ReloadRandom()
         {
             Random rd1 = new Random();
-            Bools.pai = rd1.Next(1, 6);
-            if (Bools.pai == 2 || Bools.pai == 5)
-            {
-                Random rd2 = new Random();
-                Bools.zuo = rd2.Next(1, 8);
-            }
-            else
-            {
-                Random rd2 = new Random();
-                Bools.zuo = rd2.Next(1, 9);
-            }
+            Bools.pai = rd1.Next(1, Bools.AlreadyPai);
+            Random rd2 = new Random();
+            Bools.zuo = rd2.Next(1, Bools.AlreadyZuo[Bools.pai-1]);
+
         }
         private void ControlBar_Load(object sender, EventArgs e)
         {
             this.TopMost = true;
             this.Log.Text = Bools.Log;
-            ReloadRandom();
+            
             int add = 1;
             string[] Day = new string[] { "星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六" };
             string week = Day[Convert.ToInt32(DateTime.Now.DayOfWeek.ToString("d"))].ToString();
@@ -67,8 +61,38 @@ namespace BannedApplicationUseageManager
             string date= DateTime.Now.AddDays(add).ToString("MM月dd日");
             this.groupBox4.Text = "将于"+date+"午间上台讲数学题的同学位于";
             this.Text = Bools.ControlBarName;
+            
+            try
+            {
+                if (File.Exists(@Bools.RunPlace + "BAUM_Settings/students_table.inf")) //检测是否存在学生数据目录
+                {
+                    string[] line = File.ReadAllLines(@Bools.RunPlace + "BAUM_Settings/students_table.inf");
+                    string[] setting = line[0].Split('-');
+                    Bools.AlreadyPai = int.Parse(setting[0]);
+                    Bools.NotRepeat=int.Parse(setting[Bools.AlreadyPai+1]);
+                    //Bools.AlreadyZuo = null;
+                    for (int i = 1; i <= Bools.AlreadyPai; i++)
+                    {
+                        List<int> b = Bools.AlreadyZuo.ToList();//添加座位参数
+                        b.Add(int.Parse(setting[i]));
+                        Bools.AlreadyZuo = b.ToArray();
+                    }
+                }
+            }
+            catch {
+                Bools.AlreadyPai = 6;
+                Bools.AlreadyZuo = new int[] { 9,8,9,9,8,9};
+                Bools.NotRepeat = 40;
+               // MessageBox.Show("non");
+                //Bools.AlreadyZuo = 
+
+            }
             HistoryFresh();
+            ReloadRandom();
             this.TopMost = false;
+
+
+
         }
         public void HistoryFresh()
         {
@@ -292,6 +316,9 @@ namespace BannedApplicationUseageManager
                 this.TopMost = false;
             }
         }
+
+
+
         private void 幸运观众_Click(object sender, EventArgs e)
         {
         }
@@ -322,7 +349,7 @@ namespace BannedApplicationUseageManager
         private void timer2_Tick(object sender, EventArgs e)
         {
             Bools.pai++;
-            if (Bools.pai > 6)
+            if (Bools.pai > Bools.AlreadyPai)
             {
                 Bools.pai =1;
             }
@@ -331,19 +358,9 @@ namespace BannedApplicationUseageManager
         private void timer3_Tick(object sender, EventArgs e)
         {
             Bools.zuo++;
-            if (Bools.pai == 2 || Bools.pai == 5 )
-            {
-                if (Bools.zuo > 8)
-                {
-                    Bools.zuo = 1;
-                }
-            }
-            else {
-                if (Bools.zuo > 9)
-                {
-                    Bools.zuo = 1;
-                }
-            }
+            if (Bools.zuo > Bools.AlreadyZuo[Bools.pai-1])
+                Bools.zuo = 1;
+
             label10.Text = "第" + Bools.zuo.ToString() + "座";
         }
         private void timer4_Tick(object sender, EventArgs e)
@@ -395,16 +412,9 @@ namespace BannedApplicationUseageManager
             {
                 for (int i = 1; i <=9&&yes && Bools.IsControlBarCreated; i++)
                 {
-                    if (Bools.pai == 2 || Bools.pai == 5)
-                    {
-                        Random rd2 = new Random();
-                        Bools.zuo = rd2.Next(1, 8);
-                    }
-                    else
-                    {
-                        Random rd2 = new Random();
-                        Bools.zuo = rd2.Next(1, 9);
-                    }
+                    Random rd2 = new Random();
+                    Bools.zuo = rd2.Next(1, Bools.AlreadyZuo[Bools.pai-1]);
+
                     if (Bools.IsControlBarCreated)
                     {
                         label9.Text = "第" + Bools.pai.ToString() + "条";
@@ -430,7 +440,7 @@ namespace BannedApplicationUseageManager
                 if (yes)
                 {
                     Random rd1 = new Random();
-                    Bools.pai = rd1.Next(1, 6);
+                    Bools.pai = rd1.Next(1, Bools.AlreadyPai);
                 }
                 //System.Threading.Thread.Sleep(200);
             }
@@ -438,11 +448,15 @@ namespace BannedApplicationUseageManager
         public int CountSe(int pai, int zuo) {
             int result = 0;
             if (pai == 1) { result = 0 + zuo; }
-            else if (pai == 2) { result = 9 + zuo; }
-            else if (pai == 3) { result = 17 + zuo; }
-            else if (pai == 4) { result = 26 + zuo; }
-            else if (pai == 5) { result = 35 + zuo; }
-            else if (pai == 6) { result = 43 + zuo; }
+            else {
+                int exist = zuo;
+                for (int i = pai; i>1 ; i--)
+                {
+                    exist=exist+ Bools.AlreadyZuo[i-2];
+                }
+                result = exist;
+            }
+            //MessageBox.Show(result.ToString());
             return result;
         }
         public bool MathEnd(string Name)
@@ -482,7 +496,7 @@ namespace BannedApplicationUseageManager
         {
             string[] Array=new string[] {"//New!"};
             int allline = line.Length;
-            for (int i = allline-40; i <= allline; i++)
+            for (int i = allline-Bools.NotRepeat; i <= allline; i++)
             {
                 try
                 {

@@ -543,7 +543,7 @@
             this.label1.Size = new System.Drawing.Size(353, 133);
             this.label1.TabIndex = 0;
             this.label1.Text = "此软件适用于沙市五中高中2020级7班一体机软件使用限额控制\r\n以及一些乱七八糟的东西，开机自启动请手动设置\r\n作者1:何狐\r\n作者2:黎源\r\n作者3:狐冥栎\r\n" +
-    "此版本处于测试阶段，欢迎至GitHub-issues栏反馈\r\nBannedApplicationUseageManager v1.1.6";
+    "此版本处于测试阶段，欢迎至GitHub-issues栏反馈\r\nBannedApplicationUseageManager v1.1.7";
             // 
             // timer1
             // 
