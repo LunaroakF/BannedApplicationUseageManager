@@ -76,6 +76,7 @@
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.timer5 = new System.Windows.Forms.Timer(this.components);
+            this.label12 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.详细.SuspendLayout();
@@ -137,6 +138,7 @@
             // 
             // 详细
             // 
+            this.详细.Controls.Add(this.label12);
             this.详细.Controls.Add(this.label4);
             this.详细.Controls.Add(this.groupBox2);
             this.详细.Controls.Add(this.checkBox1);
@@ -199,7 +201,7 @@
             this.label3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.Location = new System.Drawing.Point(3, 6);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(288, 117);
+            this.label3.Size = new System.Drawing.Size(288, 53);
             this.label3.TabIndex = 1;
             this.label3.Text = "控制对象:\r\nFireFox、Microsoft Edge、Google Chrome、Taskmgr...";
             // 
@@ -570,6 +572,15 @@
             this.timer5.Interval = 200;
             this.timer5.Tick += new System.EventHandler(this.timer5_Tick);
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(3, 59);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(273, 17);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "默认密码:123456 于Bools.cs处修改后此提示消失";
+            // 
             // ControlBar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -659,5 +670,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.Label repeat;
+        private System.Windows.Forms.Label label12;
     }
 }

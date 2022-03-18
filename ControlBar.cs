@@ -52,7 +52,8 @@ namespace BannedApplicationUseageManager
         {
             this.TopMost = true;
             this.Log.Text = Bools.Log;
-            
+            if (Bools.Passwords != "123456")
+                this.label12.Visible = false;
             int add = 1;
             string[] Day = new string[] { "星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六" };
             string week = Day[Convert.ToInt32(DateTime.Now.DayOfWeek.ToString("d"))].ToString();
@@ -70,7 +71,7 @@ namespace BannedApplicationUseageManager
                     string[] setting = line[0].Split('-');
                     Bools.AlreadyPai = int.Parse(setting[0]);
                     Bools.NotRepeat=int.Parse(setting[Bools.AlreadyPai+1]);
-                    //Bools.AlreadyZuo = null;
+                    Bools.AlreadyZuo = new int[] {};
                     for (int i = 1; i <= Bools.AlreadyPai; i++)
                     {
                         List<int> b = Bools.AlreadyZuo.ToList();//添加座位参数
