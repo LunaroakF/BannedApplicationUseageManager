@@ -70,7 +70,7 @@ namespace BannedApplicationUseageManager
                     string[] setting = line[0].Split('-');
                     Bools.AlreadyPai = int.Parse(setting[0]);
                     Bools.NotRepeat=int.Parse(setting[Bools.AlreadyPai+1]);
-                    //Bools.AlreadyZuo = null;
+                    Bools.AlreadyZuo = new int[] {};
                     for (int i = 1; i <= Bools.AlreadyPai; i++)
                     {
                         List<int> b = Bools.AlreadyZuo.ToList();//添加座位参数
