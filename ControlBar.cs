@@ -43,9 +43,9 @@ namespace BannedApplicationUseageManager
     public void ReloadRandom()
         {
             Random rd1 = new Random();
-            Bools.pai = rd1.Next(1, Bools.AlreadyPai);
+            Bools.pai = rd1.Next(1, Bools.AlreadyPai+1);
             Random rd2 = new Random();
-            Bools.zuo = rd2.Next(1, Bools.AlreadyZuo[Bools.pai-1]);
+            Bools.zuo = rd2.Next(1, Bools.AlreadyZuo[Bools.pai-1]+1);
 
         }
         private void ControlBar_Load(object sender, EventArgs e)
@@ -414,14 +414,14 @@ namespace BannedApplicationUseageManager
                 for (int i = 1; i <=9&&yes && Bools.IsControlBarCreated; i++)
                 {
                     Random rd2 = new Random();
-                    Bools.zuo = rd2.Next(1, Bools.AlreadyZuo[Bools.pai-1]);
+                    Bools.zuo = rd2.Next(1, Bools.AlreadyZuo[Bools.pai-1]+1);
 
                     if (Bools.IsControlBarCreated)
                     {
                         label9.Text = "第" + Bools.pai.ToString() + "条";
                         label10.Text = "第" + Bools.zuo.ToString() + "座";
 
-                        System.Threading.Thread.Sleep(50);
+                        System.Threading.Thread.Sleep(10);
                     }
                     int se = CountSe(Bools.pai, Bools.zuo);
                     string name = NameOutPut(se);
@@ -441,7 +441,7 @@ namespace BannedApplicationUseageManager
                 if (yes)
                 {
                     Random rd1 = new Random();
-                    Bools.pai = rd1.Next(1, Bools.AlreadyPai);
+                    Bools.pai = rd1.Next(1, Bools.AlreadyPai+1);
                 }
                 //System.Threading.Thread.Sleep(200);
             }
