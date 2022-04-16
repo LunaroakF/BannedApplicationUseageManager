@@ -2,7 +2,7 @@
 一体机使用限制(浏览器主要) + 语文文言翻译午间自动关机 + 数学午间讲题抽人
 
 # 解锁密码
-![Image text](https://github.com/LunaroakF/Images/blob/master/BannedApplicationUseageManager/v1.1.7%201.png)  
+![Image text](https://github.com/LunaroakF/Images/blob/master/BannedApplicationUseageManager/v1.1.10%201.png)  
 - 在Bools.cs中进行修改，默认为123456
 
 # 支持移动存储介质解锁  
