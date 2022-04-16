@@ -8,7 +8,7 @@ namespace BannedApplicationUseageManager
 {
     internal class Bools
     {
-        public static string Passwords = "foxfear063";
+        public static string Passwords = "123456";
         public static string Version = "1.1.10";
         public static string ControlBarName = "ControlBar v"+Version;
         public static bool IsControlBarCreated = false;
