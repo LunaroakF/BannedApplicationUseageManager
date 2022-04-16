@@ -149,44 +149,15 @@ namespace BannedApplicationUseageManager
         {
             try
             {
-                if (closeProc("firefox"))
+                for (int i = 0; i < Bools.Apps.Length; i++)
                 {
-                    this.RunningLog.Text = "[" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString() + " " + DateTime.Now.ToLongTimeString().ToString() + "]" +
-                         "尝试打开FireFox被终止"
-                        + Environment.NewLine + RunningLog.Text;
+                    if (closeProc(Bools.Apps[i]))
+                    {
+                        this.RunningLog.Text = "[" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString() + " " + DateTime.Now.ToLongTimeString().ToString() + "]" +
+                             "尝试打开"+Bools.Apps[i]+"被终止"
+                            + Environment.NewLine + RunningLog.Text;
+                    }
                 }
-                if (closeProc("msedge"))
-                {
-                    this.RunningLog.Text = "[" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString() + " " + DateTime.Now.ToLongTimeString().ToString() + "]" +
-                         "尝试打开Microsoft Edge被终止"
-                        + Environment.NewLine + RunningLog.Text;
-                }
-                if (closeProc("chrome"))
-                {
-                    this.RunningLog.Text = "[" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString() + " " + DateTime.Now.ToLongTimeString().ToString() + "]" +
-                         "尝试打开Chrome被终止"
-                        + Environment.NewLine + RunningLog.Text;
-                }
-                if (closeProc("Taskmgr"))
-                {
-                    this.RunningLog.Text = "[" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString() + " " + DateTime.Now.ToLongTimeString().ToString() + "]" +
-                         "尝试打开Taskmgr被终止"
-                        + Environment.NewLine + RunningLog.Text;
-                }
-               if (closeProc("Microsoft Edge"))
-               {
-                    this.RunningLog.Text = "[" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString() + " " + DateTime.Now.ToLongTimeString().ToString() + "]" +
-                         "尝试打开Microsoft Edge被终止"
-                        + Environment.NewLine + RunningLog.Text;
-                }
-                //if (closeProc("QQ"))
-                //{
-                    //this.RunningLog.Text = "[" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString() + " " + DateTime.Now.ToLongTimeString().ToString() + "]" +
-                         //"尝试打开QQ被终止"
-                        //+ Environment.NewLine + RunningLog.Text;
-                //}
-
-
             }
             catch
             {

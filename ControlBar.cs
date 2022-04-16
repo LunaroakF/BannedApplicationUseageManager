@@ -38,7 +38,7 @@ namespace BannedApplicationUseageManager
             timer1.Enabled = false;
             Bools.remaintime = 0;
             Bools.IsControlBarCreated = false;
-            Bools.IsEnable = true;
+            //Bools.IsEnable = true;
         }
     public void ReloadRandom()
         {
@@ -46,14 +46,21 @@ namespace BannedApplicationUseageManager
             Bools.pai = rd1.Next(1, Bools.AlreadyPai+1);
             Random rd2 = new Random();
             Bools.zuo = rd2.Next(1, Bools.AlreadyZuo[Bools.pai-1]+1);
-
         }
         private void ControlBar_Load(object sender, EventArgs e)
         {
             this.TopMost = true;
             this.Log.Text = Bools.Log;
+            
             if (Bools.Passwords != "123456")
                 this.label12.Visible = false;
+            if (Bools.IsEnable)
+            {
+                this.checkBox1.Checked = true;
+                Bools.ControlBarName = "ControlBar v" + Bools.Version;
+            }
+            else
+                Bools.ControlBarName = "ControlBar v" + Bools.Version + " (未启用)";
             int add = 1;
             string[] Day = new string[] { "星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六" };
             string week = Day[Convert.ToInt32(DateTime.Now.DayOfWeek.ToString("d"))].ToString();
@@ -88,6 +95,7 @@ namespace BannedApplicationUseageManager
                 //Bools.AlreadyZuo = 
 
             }
+            this.label13.Text = "不重复次数:" + Bools.NotRepeat.ToString();  
             HistoryFresh();
             ReloadRandom();
             this.TopMost = false;
@@ -131,7 +139,7 @@ namespace BannedApplicationUseageManager
         {
             System.Diagnostics.Process.Start("https://github.com/LunaroakF/BannedApplicationUseageManager");
         }
-        private void button1_Click(object sender, EventArgs e)
+        public void SaveChanges()
         {
             //MessageBox.Show(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
             if (Bools.driveName != null)
@@ -144,15 +152,21 @@ namespace BannedApplicationUseageManager
                         if (!checkBox1.Checked)
                         {
                             Bools.IsEnable = false;
-                            this.label4.Visible = true;
-                            MessageBox.Show("保存成功", "完成", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            //this.label4.Visible = true;
+                            MessageBox.Show("保存成功" + Environment.NewLine + "限制状态: 关闭", "完成", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         else
                         {
                             Bools.IsEnable = true;
-                            this.label4.Visible = false;
-                            MessageBox.Show("保存成功", "完成", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            //this.label4.Visible = false;
+                            MessageBox.Show("保存成功" + Environment.NewLine + "限制状态: 启用", "完成", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
+
+                        if (Bools.IsEnable)
+                            Bools.ControlBarName = "ControlBar v" + Bools.Version;
+                        else
+                            Bools.ControlBarName = "ControlBar v" + Bools.Version + " (未启用)";
+                        this.Text = Bools.ControlBarName;
                         return;
                     }
                 }
@@ -160,19 +174,34 @@ namespace BannedApplicationUseageManager
             if (PasswordBox.Text == Bools.Passwords && !checkBox1.Checked)
             {
                 Bools.IsEnable = false;
-                this.label4.Visible = true;
-                MessageBox.Show("保存成功", "完成", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //this.label4.Visible = true;
+                MessageBox.Show("保存成功" + Environment.NewLine + "限制状态: 关闭", "完成", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (PasswordBox.Text == Bools.Passwords && checkBox1.Checked)
             {
                 Bools.IsEnable = true;
-                this.label4.Visible = false;
-                MessageBox.Show("保存成功", "完成", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //this.label4.Visible = false;
+                MessageBox.Show("保存成功" + Environment.NewLine + "限制状态: 启用", "完成", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
-            { 
-            MessageBox.Show("凭据不工作", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            {
+                if (Bools.driveName != null)
+                    MessageBox.Show("凭据不工作" + Environment.NewLine + "当前使用凭据: 密钥+密码" + Environment.NewLine + "检测到移动存储介质插入 但从中无法读取DAKey文件或密钥不符", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show("凭据不工作" + Environment.NewLine + "当前使用凭据: 仅密码", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            if (Bools.IsEnable)
+                Bools.ControlBarName = "ControlBar v" + Bools.Version;
+            else
+                Bools.ControlBarName = "ControlBar v" + Bools.Version + " (未启用)";
+            this.Text = Bools.ControlBarName;
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SaveChanges();
         }
         private void 详细_Click(object sender, EventArgs e)
         {
@@ -317,9 +346,6 @@ namespace BannedApplicationUseageManager
                 this.TopMost = false;
             }
         }
-
-
-
         private void 幸运观众_Click(object sender, EventArgs e)
         {
         }
@@ -407,7 +433,7 @@ namespace BannedApplicationUseageManager
         }
         public void notAgain()
         {
-            System.Threading.Thread.Sleep(1500);
+            System.Threading.Thread.Sleep(1000);
             bool yes = true;
             while (yes && Bools.IsControlBarCreated)
             {
@@ -527,6 +553,13 @@ namespace BannedApplicationUseageManager
             catch {
                 return "//NoneStudentName//";
             }
+        }
+
+        private void PasswordBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyValue==13)
+                SaveChanges();
+
         }
     }
 }

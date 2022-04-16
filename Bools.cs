@@ -8,10 +8,12 @@ namespace BannedApplicationUseageManager
 {
     internal class Bools
     {
-        public static string Passwords = "123456";
-        public static string ControlBarName = "ControlBar v1.1.8";
+        public static string Passwords = "foxfear063";
+        public static string Version = "1.1.10";
+        public static string ControlBarName = "ControlBar v"+Version;
         public static bool IsControlBarCreated = false;
         public static bool IsEnable = true;
+        public static string[] Apps = new string[] {"firefox", "msedge", "chrome", "Microsoft Edge" };
         public static string Log;
         public static int remaintime;
         public static int firstremaintime=0;

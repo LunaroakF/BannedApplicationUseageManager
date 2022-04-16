@@ -35,11 +35,11 @@
             this.button1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.详细 = new System.Windows.Forms.TabPage();
+            this.label12 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.PasswordBox = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.定时 = new System.Windows.Forms.TabPage();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -57,6 +57,7 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.history = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.repeat = new System.Windows.Forms.Label();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -76,7 +77,13 @@
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.timer5 = new System.Windows.Forms.Timer(this.components);
-            this.label12 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.详细.SuspendLayout();
@@ -91,6 +98,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -138,11 +149,10 @@
             // 
             // 详细
             // 
+            this.详细.Controls.Add(this.groupBox6);
             this.详细.Controls.Add(this.label12);
             this.详细.Controls.Add(this.label4);
             this.详细.Controls.Add(this.groupBox2);
-            this.详细.Controls.Add(this.checkBox1);
-            this.详细.Controls.Add(this.label3);
             this.详细.Controls.Add(this.groupBox1);
             this.详细.Controls.Add(this.button1);
             this.详细.Location = new System.Drawing.Point(4, 26);
@@ -153,6 +163,15 @@
             this.详细.Text = "详细";
             this.详细.UseVisualStyleBackColor = true;
             this.详细.Click += new System.EventHandler(this.详细_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(10, 239);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(273, 17);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "默认密码:123456 于Bools.cs处修改后此提示消失";
             // 
             // label4
             // 
@@ -170,7 +189,7 @@
             this.groupBox2.Controls.Add(this.PasswordBox);
             this.groupBox2.Location = new System.Drawing.Point(6, 175);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(283, 53);
+            this.groupBox2.Size = new System.Drawing.Size(285, 53);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "密钥/密码键入";
@@ -183,27 +202,17 @@
             this.PasswordBox.PasswordChar = '*';
             this.PasswordBox.Size = new System.Drawing.Size(270, 23);
             this.PasswordBox.TabIndex = 3;
+            this.PasswordBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PasswordBox_KeyDown);
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(216, 148);
+            this.checkBox1.Location = new System.Drawing.Point(208, 141);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(75, 21);
             this.checkBox1.TabIndex = 2;
             this.checkBox1.Text = "启用功能";
             this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(3, 6);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(288, 53);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "控制对象:\r\nFireFox、Microsoft Edge、Google Chrome、Taskmgr...";
             // 
             // 定时
             // 
@@ -384,6 +393,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.repeat);
             this.groupBox4.Controls.Add(this.checkBox3);
             this.groupBox4.Controls.Add(this.label11);
@@ -397,6 +407,15 @@
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "groupBox4";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(0, 240);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(102, 17);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "不重复次数:NULL";
             // 
             // repeat
             // 
@@ -490,7 +509,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(411, 210);
+            this.label2.Location = new System.Drawing.Point(408, 192);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(145, 17);
             this.label2.TabIndex = 6;
@@ -518,7 +537,7 @@
             // 
             // linkLabel1
             // 
-            this.linkLabel1.Location = new System.Drawing.Point(366, 226);
+            this.linkLabel1.Location = new System.Drawing.Point(363, 208);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(233, 37);
             this.linkLabel1.TabIndex = 2;
@@ -530,9 +549,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::BannedApplicationUseageManager.Properties.Resources.water;
-            this.pictureBox1.Location = new System.Drawing.Point(7, 133);
+            this.pictureBox1.Location = new System.Drawing.Point(10, 149);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(353, 130);
+            this.pictureBox1.Size = new System.Drawing.Size(333, 120);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -540,12 +559,12 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(3, 3);
+            this.label1.Location = new System.Drawing.Point(7, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(353, 133);
             this.label1.TabIndex = 0;
             this.label1.Text = "此软件适用于沙市五中高中2020级7班一体机软件使用限额控制\r\n以及一些乱七八糟的东西，开机自启动请手动设置\r\n作者1:何狐\r\n作者2:黎源\r\n作者3:狐冥栎\r\n" +
-    "此版本处于测试阶段，欢迎至GitHub-issues栏反馈\r\nBannedApplicationUseageManager v1.1.7";
+    "此版本处于测试阶段，欢迎至GitHub-issues栏反馈";
             // 
             // timer1
             // 
@@ -572,14 +591,81 @@
             this.timer5.Interval = 200;
             this.timer5.Tick += new System.EventHandler(this.timer5_Tick);
             // 
-            // label12
+            // pictureBox4
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(3, 59);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(273, 17);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "默认密码:123456 于Bools.cs处修改后此提示消失";
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(10, 22);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(75, 75);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 7;
+            this.pictureBox4.TabStop = false;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label15);
+            this.groupBox6.Controls.Add(this.label14);
+            this.groupBox6.Controls.Add(this.label3);
+            this.groupBox6.Controls.Add(this.pictureBox6);
+            this.groupBox6.Controls.Add(this.pictureBox5);
+            this.groupBox6.Controls.Add(this.pictureBox4);
+            this.groupBox6.Controls.Add(this.checkBox1);
+            this.groupBox6.Location = new System.Drawing.Point(6, 6);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(285, 163);
+            this.groupBox6.TabIndex = 6;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "控制对象";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(104, 22);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(75, 75);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 8;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(197, 22);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(75, 75);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 9;
+            this.pictureBox6.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(10, 100);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 38);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Google Chrome";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label14
+            // 
+            this.label14.Location = new System.Drawing.Point(104, 100);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(75, 38);
+            this.label14.TabIndex = 11;
+            this.label14.Text = "Microsoft Edge";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label15
+            // 
+            this.label15.Location = new System.Drawing.Point(197, 100);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(75, 38);
+            this.label15.TabIndex = 12;
+            this.label15.Text = "Mozilla Firefox";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ControlBar
             // 
@@ -618,6 +704,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -635,7 +726,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox PasswordBox;
         private System.Windows.Forms.CheckBox checkBox1;
@@ -671,5 +761,13 @@
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.Label repeat;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }
