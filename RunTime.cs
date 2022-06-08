@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
+using System.Threading;
 
 namespace BannedApplicationUseageManager
 {
@@ -87,15 +88,10 @@ namespace BannedApplicationUseageManager
             }
             base.WndProc(ref m);
         }
-
         public RunTime()
         {
             InitializeComponent();
         }
-
-
-
-
         ControlBar controlbar = new ControlBar();
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -106,9 +102,17 @@ namespace BannedApplicationUseageManager
                 Bools.IsControlBarCreated = true;
             }
         }
-
         private void RunTime_Load(object sender, EventArgs e)
         {
+            try
+            {
+                Bools.Hostsfs = File.Open("C:/Windows/System32/drivers/etc/hosts", FileMode.Open);
+                Bools.Hostssr = new StreamReader((System.IO.Stream)Bools.Hostsfs, System.Text.Encoding.Default);
+                this.RunningLog.Text = "[" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString() + " " + DateTime.Now.ToLongTimeString().ToString() + "]" +
+         "hosts文件抢占权限成功"
+        + Environment.NewLine + RunningLog.Text;
+            }
+            catch { }
             string name = Process.GetCurrentProcess().MainModule.ModuleName;
             string pname = Path.GetFileNameWithoutExtension(name);
             Process[] myp = Process.GetProcessesByName(pname);
@@ -120,7 +124,6 @@ namespace BannedApplicationUseageManager
             }
             notifyIcon1.Visible = true;
         }
-
         private bool closeProc(string ProcName)
         {
             bool result = false;
@@ -144,25 +147,28 @@ namespace BannedApplicationUseageManager
             }
             return result;
         }
-
         private void CloseAppsList()
         {
             try
             {
-                for (int i = 0; i < Bools.Apps.Length; i++)
-                {
-                    if (closeProc(Bools.Apps[i]))
-                    {
-                        this.RunningLog.Text = "[" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString() + " " + DateTime.Now.ToLongTimeString().ToString() + "]" +
-                             "尝试打开"+Bools.Apps[i]+"被终止"
-                            + Environment.NewLine + RunningLog.Text;
-                    }
-                }
+                //for (int i = 0; i < Bools.Apps.Length; i++)
+                //{
+                    //if (closeProc(Bools.Apps[i]))
+                    //{
+                        //this.RunningLog.Text = "[" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString() + " " + DateTime.Now.ToLongTimeString().ToString() + "]" +
+                            // "尝试打开"+Bools.Apps[i]+"被终止"
+                            //+ Environment.NewLine + RunningLog.Text;
+                   // }
+                //}
+                
             }
             catch
             {
+                //this.RunningLog.Text = "[" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString() + " " + DateTime.Now.ToLongTimeString().ToString() + "]" +
+        // "一个未知的错误，请调用开发人员"
+        //+ Environment.NewLine + RunningLog.Text;
                 this.RunningLog.Text = "[" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString() + " " + DateTime.Now.ToLongTimeString().ToString() + "]" +
-         "一个未知的错误，请调用开发人员"
+         "hosts文件抢占权限成功"
         + Environment.NewLine + RunningLog.Text;
             }
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,11 +10,13 @@ namespace BannedApplicationUseageManager
     internal class Bools
     {
         public static string Passwords = "123456";
-        public static string Version = "1.1.10";
+        public static string Version = "1.2.1";
         public static string ControlBarName = "ControlBar v"+Version;
         public static bool IsControlBarCreated = false;
         public static bool IsEnable = true;
         public static string[] Apps = new string[] {""};
+        public static FileStream Hostsfs;
+        public static StreamReader Hostssr;
         //public static string[] Apps = new string[] { "firefox", "msedge", "chrome", "Microsoft Edge" };
         public static string Log;
         public static int remaintime;
@@ -30,7 +33,11 @@ namespace BannedApplicationUseageManager
         public static string driveName = null;
         public static int GreenButton = 50;
         public static int OrangeButton = GreenButton+5;
-        public static int LuckyGuyNum = 1;
+        public static int LuckyGuyNum = 0;
+        public static int[] GreenBox = new int[] { };
+        public static int[] OrangeBox = new int[] { };
+        public static int[] RedBox = new int[] { };
+        public static bool SecondPlusRunning = false;
 
     }
 }

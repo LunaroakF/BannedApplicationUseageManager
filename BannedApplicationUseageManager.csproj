@@ -107,11 +107,16 @@
     <None Include="Github.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Loading.gif" />
     <None Include="yellow.png" />
     <None Include="red.png" />
     <None Include="green.png" />
+    <None Include="1-1F1191349100-L.png" />
+    <None Include="hosts.png" />
     <Content Include="Icon.ico" />
-    <None Include="Resources\red.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="loading\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

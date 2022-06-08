@@ -100,7 +100,11 @@ namespace BannedApplicationUseageManager
             HistoryFresh();
             ReloadRandom();
             this.TopMost = false;
-
+            if (history.Lines.Length > Bools.NotRepeat)
+            {
+                Thread thread = new Thread(new ThreadStart(changeCard));
+                thread.Start();
+            }
 
 
         }
@@ -123,11 +127,20 @@ namespace BannedApplicationUseageManager
                     if ((line.Length - i - 1) == Bools.NotRepeat)
                     {
                         main = "------------------------------" + Environment.NewLine + main;
-                        Thread thread = new Thread(new ThreadStart(changeCard));
-                        thread.Start();
+                        
                     }
                 }
                 history.Text = main;
+            }
+        }
+        public bool CheckNameInNameBox(string name)
+        {
+            if (NameBox1.Text == name || NameBox2.Text == name || NameBox3.Text == name || NameBox4.Text == name || NameBox5.Text == name)
+            {
+                return true;
+            }
+            else {
+                return false;
             }
         }
 
@@ -155,87 +168,135 @@ namespace BannedApplicationUseageManager
                 if (File.Exists(@Bools.RunPlace + "BAUM_Settings/math_history.inf")) //检测是否存在学生数据目录
                 {
                     string[] line2 = File.ReadAllLines(@Bools.RunPlace + "BAUM_Settings/math_history.inf");
+                    int Name1_Value = 2;
+                    int Name2_Value = 2;
+                    int Name3_Value = 2;
+                    int Name4_Value = 2;
+                    int Name5_Value = 2;
+                    bool wt1 = true;
+                    bool wt2 = true;
+                    bool wt3 = true;
+                    bool wt4 = true;
+                    bool wt5 = true;
                     for (int i = line2.Length-1; i >=1; i--)
                     {
-
                         string[] a = line2[i].Split('-');
                         //MessageBox.Show(a[1]);
+
                         //MessageBox.Show(Guys[2]);
-                        if (a[1] == Guys[0]){
+                        if (a[1] == Guys[0]&&wt1){
                             try {
                                 
                                 NameLast1.Text = "上次:" + a[0];
                                 Namebutton1.Text = (line2.Length-i).ToString();
+                                if ((line2.Length - i) <= Bools.GreenButton) { Name1_Value = 0; }
+                                else if ((line2.Length - i) <= Bools.OrangeButton) { Name1_Value = 1; }
+                                else { Name1_Value = 2; }
                                 NamePause1.Text = "相隔:" + (line2.Length - i).ToString() + "人";
                             } catch {
                                 NameLast1.Text = "上次:" + "[从未]";
                                 Namebutton1.Text = "999";
+                                Name1_Value = 2;
                                 NamePause1.Text = "相隔:" + "-1" + "人";
                             }
+                            wt1 = false;
                         }
-                        else if (a[1] == Guys[1]) { 
+                        else if (a[1] == Guys[1]&&wt2 ) { 
                             try { NameLast2.Text = "上次:" + a[0];
                                 Namebutton2.Text = (line2.Length - i).ToString();
+                                if ((line2.Length - i) <= Bools.GreenButton) { Name2_Value = 0; }
+                                else if ((line2.Length - i) <= Bools.OrangeButton) { Name2_Value = 1; }
+                                else { Name2_Value = 2; }
                                 NamePause2.Text = "相隔:" + (line2.Length - i).ToString() + "人";
                             } catch {
                                 NameLast2.Text = "上次:" + "[从未]";
                                 Namebutton2.Text = "999";
+                                Name2_Value = 2;
                                 NamePause2.Text = "相隔:" + "-1" + "人";
                             }
+                            wt2 = false;
                         }
-                        else if (a[1] == Guys[2]) { 
+                        else if (a[1] == Guys[2] && wt3) { 
                             try {
-                                
                                 NameLast3.Text = "上次:" + a[0];
                                 Namebutton3.Text = (line2.Length - i).ToString();
+                                if ((line2.Length - i) <= Bools.GreenButton) { Name3_Value = 0; }
+                                else if ((line2.Length - i) <= Bools.OrangeButton) { Name3_Value = 1; }
+                                else { Name3_Value = 2; }
                                 NamePause3.Text = "相隔:" + (line2.Length - i).ToString() + "人";
                             } catch {
                                 NameLast3.Text = "上次:" + "[从未]";
                                 Namebutton3.Text = "999";
+                                Name3_Value = 2;
                                 NamePause3.Text = "相隔:"+"-1"+"人";
-                            } 
+                            }
+                            wt3 = false;
                         }
-                        else if (a[1] == Guys[3]) {
+                        else if (a[1] == Guys[3]&& wt4) {
                             try { 
                                 NameLast4.Text = "上次:" + a[0];
                                 Namebutton4.Text = (line2.Length - i).ToString();
+                                if ((line2.Length - i) <= Bools.GreenButton) { Name4_Value = 0; }
+                                else if ((line2.Length - i) <= Bools.OrangeButton) { Name4_Value = 1; }
+                                else { Name4_Value = 2; }
                                 NamePause4.Text = "相隔:" + (line2.Length - i).ToString() + "人";
                             } catch {
                                 NameLast4.Text = "上次:" + "[从未]";
                                 Namebutton4.Text = "999";
+                                Name4_Value = 2;
                                 NamePause4.Text = "相隔:" + "-1" + "人";
                             }
+                            wt4 = false;
                         }
-                        else if (a[1] == Guys[4]) {
+                        else if (a[1] == Guys[4]&& wt5) {
                             try { NameLast5.Text = "上次:" + a[0];
                                 Namebutton5.Text = (line2.Length - i).ToString();
+                                if ((line2.Length - i) <= Bools.GreenButton) { Name5_Value = 0; }
+                                else if ((line2.Length - i) <= Bools.OrangeButton) { Name5_Value = 1; }
+                                else { Name5_Value = 2; }
                                 NamePause5.Text = "相隔:" + (line2.Length - i).ToString() + "人";
                             } catch {
                                 NameLast5.Text = "上次:" + "[从未]";
                                 Namebutton5.Text = "999";
+                                Name5_Value = 2;
                                 NamePause5.Text = "相隔:" + "-1" + "人";
                             }
+                            wt5 = false;
                         }
-
                     }
+                    int[] c = new int[]{Name1_Value, Name2_Value, Name3_Value, Name4_Value, Name5_Value};
+                    List<int> intListGreen = new List<int>();
+                    List<int> intListOrange = new List<int>();
+                    List<int> intListRed = new List<int>();
+                    for (int i = 0; i < c.Length; i++)
+                    {
+                        if (c[i] == 0){ intListGreen.Add(i+1);}
+                        else if (c[i] == 1) { intListOrange.Add(i+1); }
+                        else if (c[i] == 2) { intListRed.Add(i+1); }
+                    }
+                    Bools.GreenBox = intListGreen.ToArray();
+                    Bools.OrangeBox = intListOrange.ToArray();
+                    Bools.RedBox = intListRed.ToArray();
                 }
-
-
-
             }
         }
 
         public void changeCard()
         {
+            //MessageBox.Show("重载");
             //System.Threading.Thread.Sleep(1000);
+            groupBox7.Location = groupBox4.Location;
             groupBox4.Enabled = false;
-            //System.Threading.Thread.Sleep(50);
+            LuckyGuyALLRED();
+            System.Threading.Thread.Sleep(50);
             groupBox4.Visible = false;
             //groupBox7.Enabled = true;
-            groupBox7.Location = groupBox4.Location;
             LoadVIPCards();
-            button5.Text = "返回";
+            LuckyGuyALLOFF();
+            //button5.Text = "切换";
             //groupBox7.Visible = true;
+            button5.Enabled = true;
+            button4.Enabled = true;
         }
 
         public void UpdateLog()
@@ -303,9 +364,25 @@ namespace BannedApplicationUseageManager
             }
 
             if (Bools.IsEnable)
+            {
                 Bools.ControlBarName = "ControlBar v" + Bools.Version;
+                try
+                {
+                    Bools.Hostsfs = File.Open("C:/Windows/System32/drivers/etc/hosts", FileMode.Open);
+                    Bools.Hostssr = new StreamReader((System.IO.Stream)Bools.Hostsfs, System.Text.Encoding.Default);
+                }
+                catch { }
+            }
             else
+            {
                 Bools.ControlBarName = "ControlBar v" + Bools.Version + " (未启用)";
+                try
+                {
+                    Bools.Hostsfs.Close();
+                    Bools.Hostssr = null;
+                }
+                catch { }
+            }
             this.Text = Bools.ControlBarName;
 
         }
@@ -678,18 +755,21 @@ namespace BannedApplicationUseageManager
 
         private void button4_Click(object sender, EventArgs e)
         {
-            button4.Text = "加载";
+            //button4.Text = "加载";
+            button4.Enabled = false;
             groupBox4.Enabled = true;
             groupBox4.Visible = true;
             groupBox7.Enabled = true;
             groupBox7.Location = hidebt.Location;
+            LuckyGuyALLRED();
             //groupBox7.Visible = false;
-            button4.Text = "返回";
+            //button4.Text = "切换";
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            button5.Text = "加载";
+            //button5.Text = "加载";
+            button5.Enabled = false;
             groupBox4.Enabled = false;
             Thread thread = new Thread(new ThreadStart(changeCard));
             thread.Start();
@@ -710,7 +790,6 @@ namespace BannedApplicationUseageManager
                 Namebutton1.BackgroundImage = Properties.Resources.red;
             }
         }
-
         private void Namebutton2_TextChanged(object sender, EventArgs e)
         {
             if (int.Parse(Namebutton2.Text) <= Bools.GreenButton)
@@ -726,7 +805,6 @@ namespace BannedApplicationUseageManager
                 Namebutton2.BackgroundImage = Properties.Resources.red;
             }
         }
-
         private void Namebutton3_TextChanged(object sender, EventArgs e)
         {
             if (int.Parse(Namebutton3.Text) <= Bools.GreenButton)
@@ -742,7 +820,6 @@ namespace BannedApplicationUseageManager
                 Namebutton3.BackgroundImage = Properties.Resources.red;
             }
         }
-
         private void Namebutton4_TextChanged(object sender, EventArgs e)
         {
             if (int.Parse(Namebutton4.Text) <= Bools.GreenButton)
@@ -774,28 +851,133 @@ namespace BannedApplicationUseageManager
                 Namebutton5.BackgroundImage = Properties.Resources.red;
             }
         }
-
         public void Start2plus()
         {
-            while (true)
+            while (Bools.SecondPlusRunning)
             {
-
-                //System.Threading.Thread.Sleep(50);
+                int waittime = 50;
+                Random rd1 = new Random();
+                int a = rd1.Next(1, 10+1);//1~5红色 6~9橙色 10绿色
+                int b = 0;
+                if (a == 1 || a == 2 || a == 3 || a == 4 || a == 5||a==6)
+                {
+                    if (Bools.RedBox.Length != 0)
+                    {
+                        Random rd2 = new Random();
+                        b = rd2.Next(0, Bools.RedBox.Length);
+                        b = Bools.RedBox[b];
+                    }
+                    else {
+                        Random rd2 = new Random();
+                        b = rd2.Next(1, 6);
+                    }
+                }
+                else if (a == 7 || a == 8 || a == 9)
+                {
+                    if (Bools.OrangeBox.Length != 0)
+                    {
+                        Random rd2 = new Random();
+                        b = rd2.Next(0, Bools.OrangeBox.Length);
+                        b = Bools.OrangeBox[b];
+                    }
+                    else {
+                        Random rd2 = new Random();
+                        b = rd2.Next(1, 6);
+                    }
+                }
+                else if (a == 10)
+                {
+                    if (Bools.GreenBox.Length != 0)
+                    {
+                        Random rd2 = new Random();
+                        b = rd2.Next(0, Bools.GreenBox.Length);
+                        //MessageBox.Show("Bools.GreenBox.Length=" + Bools.GreenBox.Length.ToString());
+                        b = Bools.GreenBox[b];
+                    }
+                    else {
+                        Random rd2 = new Random();
+                        b = rd2.Next(1, 6);
+                    }
+                }
+                if (b == 1) { LuckyGuyTurn1(); }
+                else if (b == 2) { LuckyGuyTurn2(); }
+                else if (b == 3) { LuckyGuyTurn3(); }
+                else if (b == 4) { LuckyGuyTurn4(); }
+                else if (b == 5) { LuckyGuyTurn5(); }
+                else { waittime = 0; }
+                System.Threading.Thread.Sleep(waittime);
             }
         }
-        public void LuckyGuyTurn1() { LuckyGuyALLOFF(); NameBox1.BackColor = Color.Gainsboro; }
-        public void LuckyGuyTurn2() { LuckyGuyALLOFF(); NameBox2.BackColor = Color.Gainsboro; }
-        public void LuckyGuyTurn3() { LuckyGuyALLOFF(); NameBox3.BackColor = Color.Gainsboro; }
-        public void LuckyGuyTurn4() { LuckyGuyALLOFF(); NameBox4.BackColor = Color.Gainsboro; }
-        public void LuckyGuyTurn5() { LuckyGuyALLOFF(); NameBox5.BackColor = Color.Gainsboro; }
-        public void LuckyGuyALLOFF(){NameBox1.BackColor = Color.Transparent;NameBox2.BackColor = Color.Transparent;NameBox3.BackColor = Color.Transparent;NameBox4.BackColor = Color.Transparent;NameBox5.BackColor = Color.Transparent;}
+        public void LuckyGuyTurn1() { LuckyGuyALLOFF(); NameBox1.BackColor = Color.Gainsboro; Bools.LuckyGuyNum = 1; }
+        public void LuckyGuyTurn2() { LuckyGuyALLOFF(); NameBox2.BackColor = Color.Gainsboro; Bools.LuckyGuyNum = 2; }
+        public void LuckyGuyTurn3() { LuckyGuyALLOFF(); NameBox3.BackColor = Color.Gainsboro; Bools.LuckyGuyNum = 3; }
+        public void LuckyGuyTurn4() { LuckyGuyALLOFF(); NameBox4.BackColor = Color.Gainsboro; Bools.LuckyGuyNum = 4; }
+        public void LuckyGuyTurn5() { LuckyGuyALLOFF(); NameBox5.BackColor = Color.Gainsboro; Bools.LuckyGuyNum = 5; }
+        public void LuckyGuyALLOFF(){NameBox1.BackColor = Color.Transparent;NameBox2.BackColor = Color.Transparent;NameBox3.BackColor = Color.Transparent;NameBox4.BackColor = Color.Transparent;NameBox5.BackColor = Color.Transparent; Bools.LuckyGuyNum = 0; }
+        public void LuckyGuyALLRED()
+        {
+            NameBox1.Text = "//NAME//";
+            NameBox2.Text = "//NAME//";
+            NameBox3.Text = "//NAME//";
+            NameBox4.Text = "//NAME//";
+            NameBox5.Text = "//NAME//";
+            NameLast1.Text = "上次:[Never]";
+            NameLast2.Text = "上次:[Never]";
+            NameLast3.Text = "上次:[Never]";
+            NameLast4.Text = "上次:[Never]";
+            NameLast5.Text = "上次:[Never]";
+            NamePause1.Text = "相隔:-1人";
+            NamePause2.Text = "相隔:-1人";
+            NamePause3.Text = "相隔:-1人";
+            NamePause4.Text = "相隔:-1人";
+            NamePause5.Text = "相隔:-1人";
+            Namebutton1.Text = "-1";
+            Namebutton2.Text = "-1";
+            Namebutton3.Text = "-1";
+            Namebutton4.Text = "-1";
+            Namebutton5.Text = "-1";
+        }
 
+        public void button6_Click_Branch1()
+        {
+            System.Threading.Thread.Sleep(1500);
+            //button6.Text = "开始";
+            button6.Enabled = true;
+        }
+        public void button6_Click_Branch2()
+        {
+            System.Threading.Thread.Sleep(100);
+            if (Bools.LuckyGuyNum == 1) { HistoryWrite(NameBox1.Text); nameoutput2.Text = NameBox1.Text; label11.Text = NameBox1.Text; }
+            else if (Bools.LuckyGuyNum == 2) { HistoryWrite(NameBox2.Text); nameoutput2.Text = NameBox2.Text; label11.Text = NameBox2.Text; }
+            else if (Bools.LuckyGuyNum == 3) { HistoryWrite(NameBox3.Text); nameoutput2.Text = NameBox3.Text; label11.Text = NameBox3.Text; }
+            else if (Bools.LuckyGuyNum == 4) { HistoryWrite(NameBox4.Text); nameoutput2.Text = NameBox4.Text; label11.Text = NameBox4.Text; }
+            else if (Bools.LuckyGuyNum == 5) { HistoryWrite(NameBox5.Text); nameoutput2.Text = NameBox5.Text; label11.Text = NameBox5.Text; }
+            System.Threading.Thread.Sleep(1500);
+            changeCard();
+        }
         private void button6_Click(object sender, EventArgs e)
         {
-            Thread thread = new Thread(new ThreadStart(Start2plus));
-            thread.Start();
+            nameoutput2.Text = "";
+            nameoutput2.Visible = true;
+            if (!Bools.SecondPlusRunning)
+            {
+                button6.Enabled = false;
+                button6.Text="停止";
+                Bools.SecondPlusRunning = true;
+                Thread thread = new Thread(new ThreadStart(Start2plus));
+                thread.Start();
+            }
+            else {
+                button6.Enabled = false;
+                button6.Text = "开始";
+                Thread thread = new Thread(new ThreadStart(button6_Click_Branch2));
+                thread.Start();
+                Bools.SecondPlusRunning = false;
+            }
+            Thread thread0 = new Thread(new ThreadStart(button6_Click_Branch1));
+            thread0.Start();
         }
-    }
+        }
 }
 
 
