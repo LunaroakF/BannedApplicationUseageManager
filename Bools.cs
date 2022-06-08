@@ -13,7 +13,8 @@ namespace BannedApplicationUseageManager
         public static string ControlBarName = "ControlBar v"+Version;
         public static bool IsControlBarCreated = false;
         public static bool IsEnable = true;
-        public static string[] Apps = new string[] {"firefox", "msedge", "chrome", "Microsoft Edge" };
+        public static string[] Apps = new string[] {""};
+        //public static string[] Apps = new string[] { "firefox", "msedge", "chrome", "Microsoft Edge" };
         public static string Log;
         public static int remaintime;
         public static int firstremaintime=0;
@@ -27,5 +28,9 @@ namespace BannedApplicationUseageManager
         public static int NotRepeat = 40;
         public static string PassWeek = "星期六";
         public static string driveName = null;
+        public static int GreenButton = 50;
+        public static int OrangeButton = GreenButton+5;
+        public static int LuckyGuyNum = 1;
+
     }
 }

@@ -51,7 +51,7 @@ namespace BannedApplicationUseageManager
         {
             this.TopMost = true;
             this.Log.Text = Bools.Log;
-            
+            groupBox7.Location = hidebt.Location;
             if (Bools.Passwords != "123456")
                 this.label12.Visible = false;
             if (Bools.IsEnable)
@@ -68,6 +68,7 @@ namespace BannedApplicationUseageManager
                 add = 2;
             string date= DateTime.Now.AddDays(add).ToString("MM月dd日");
             this.groupBox4.Text = "将于"+date+"午间上台讲数学题的同学位于";
+            this.groupBox7.Text = "将于" + date + "午间上台讲数学题的同学";
             this.Text = Bools.ControlBarName;
             
             try
@@ -122,11 +123,121 @@ namespace BannedApplicationUseageManager
                     if ((line.Length - i - 1) == Bools.NotRepeat)
                     {
                         main = "------------------------------" + Environment.NewLine + main;
+                        Thread thread = new Thread(new ThreadStart(changeCard));
+                        thread.Start();
                     }
                 }
                 history.Text = main;
             }
         }
+
+        public void LoadVIPCards()
+        {
+            string[] Guys;
+            List<string> strList = new List<string>();
+            if (File.Exists(@Bools.RunPlace + "BAUM_Settings/students_table.inf")) //检测是否存在学生数据目录
+            {
+                string[] line1 = File.ReadAllLines(@Bools.RunPlace + "BAUM_Settings/students_table.inf");
+                for (int i = 1; i <= line1.Length - 1; i++)
+                {
+                    if (MathEnd(line1[i]))
+                    {
+                        strList.Add(line1[i]);
+                        //MessageBox.Show(line[i]);
+                    }
+                }
+                Guys = strList.ToArray();//下次可能被抽到的学生名单
+                NameBox1.Text = Guys[0];
+                NameBox2.Text = Guys[1];
+                NameBox3.Text = Guys[2];
+                NameBox4.Text = Guys[3];
+                NameBox5.Text = Guys[4];
+                if (File.Exists(@Bools.RunPlace + "BAUM_Settings/math_history.inf")) //检测是否存在学生数据目录
+                {
+                    string[] line2 = File.ReadAllLines(@Bools.RunPlace + "BAUM_Settings/math_history.inf");
+                    for (int i = line2.Length-1; i >=1; i--)
+                    {
+
+                        string[] a = line2[i].Split('-');
+                        //MessageBox.Show(a[1]);
+                        //MessageBox.Show(Guys[2]);
+                        if (a[1] == Guys[0]){
+                            try {
+                                
+                                NameLast1.Text = "上次:" + a[0];
+                                Namebutton1.Text = (line2.Length-i).ToString();
+                                NamePause1.Text = "相隔:" + (line2.Length - i).ToString() + "人";
+                            } catch {
+                                NameLast1.Text = "上次:" + "[从未]";
+                                Namebutton1.Text = "999";
+                                NamePause1.Text = "相隔:" + "-1" + "人";
+                            }
+                        }
+                        else if (a[1] == Guys[1]) { 
+                            try { NameLast2.Text = "上次:" + a[0];
+                                Namebutton2.Text = (line2.Length - i).ToString();
+                                NamePause2.Text = "相隔:" + (line2.Length - i).ToString() + "人";
+                            } catch {
+                                NameLast2.Text = "上次:" + "[从未]";
+                                Namebutton2.Text = "999";
+                                NamePause2.Text = "相隔:" + "-1" + "人";
+                            }
+                        }
+                        else if (a[1] == Guys[2]) { 
+                            try {
+                                
+                                NameLast3.Text = "上次:" + a[0];
+                                Namebutton3.Text = (line2.Length - i).ToString();
+                                NamePause3.Text = "相隔:" + (line2.Length - i).ToString() + "人";
+                            } catch {
+                                NameLast3.Text = "上次:" + "[从未]";
+                                Namebutton3.Text = "999";
+                                NamePause3.Text = "相隔:"+"-1"+"人";
+                            } 
+                        }
+                        else if (a[1] == Guys[3]) {
+                            try { 
+                                NameLast4.Text = "上次:" + a[0];
+                                Namebutton4.Text = (line2.Length - i).ToString();
+                                NamePause4.Text = "相隔:" + (line2.Length - i).ToString() + "人";
+                            } catch {
+                                NameLast4.Text = "上次:" + "[从未]";
+                                Namebutton4.Text = "999";
+                                NamePause4.Text = "相隔:" + "-1" + "人";
+                            }
+                        }
+                        else if (a[1] == Guys[4]) {
+                            try { NameLast5.Text = "上次:" + a[0];
+                                Namebutton5.Text = (line2.Length - i).ToString();
+                                NamePause5.Text = "相隔:" + (line2.Length - i).ToString() + "人";
+                            } catch {
+                                NameLast5.Text = "上次:" + "[从未]";
+                                Namebutton5.Text = "999";
+                                NamePause5.Text = "相隔:" + "-1" + "人";
+                            }
+                        }
+
+                    }
+                }
+
+
+
+            }
+        }
+
+        public void changeCard()
+        {
+            //System.Threading.Thread.Sleep(1000);
+            groupBox4.Enabled = false;
+            //System.Threading.Thread.Sleep(50);
+            groupBox4.Visible = false;
+            //groupBox7.Enabled = true;
+            groupBox7.Location = groupBox4.Location;
+            LoadVIPCards();
+            button5.Text = "返回";
+            //groupBox7.Visible = true;
+        }
+
         public void UpdateLog()
         {
             this.Log.Text = Bools.Log;
@@ -416,6 +527,7 @@ namespace BannedApplicationUseageManager
                 if (MathEnd(name))
                 {
                     label11.Text = name;
+                    nameoutput2.Text = name;
                     HistoryWrite(name);
                     button3.Text = "开始";
                     button3.Enabled = true;
@@ -454,6 +566,7 @@ namespace BannedApplicationUseageManager
                     if (MathEnd(name) && Bools.IsControlBarCreated)
                     {
                         label11.Text = name;
+                        nameoutput2.Text = name;
                         HistoryWrite(name);
                         yes = false;
                         button3.Text = "开始";
@@ -519,6 +632,7 @@ namespace BannedApplicationUseageManager
                 }
             }
         }
+
         public string[] MathHistorySetOutStudentsName(string[] line)
         {
             string[] Array=new string[] {"//New!"};
@@ -560,6 +674,126 @@ namespace BannedApplicationUseageManager
             if(e.KeyValue==13)
                 SaveChanges();
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            button4.Text = "加载";
+            groupBox4.Enabled = true;
+            groupBox4.Visible = true;
+            groupBox7.Enabled = true;
+            groupBox7.Location = hidebt.Location;
+            //groupBox7.Visible = false;
+            button4.Text = "返回";
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            button5.Text = "加载";
+            groupBox4.Enabled = false;
+            Thread thread = new Thread(new ThreadStart(changeCard));
+            thread.Start();
+            
+        }
+
+        private void Namebutton1_TextChanged(object sender, EventArgs e)
+        {
+            if (int.Parse(Namebutton1.Text) <= Bools.GreenButton)
+            {
+                Namebutton1.BackgroundImage = Properties.Resources.green;
+            }
+            else if (int.Parse(Namebutton1.Text) <= Bools.OrangeButton)
+            {
+                Namebutton1.BackgroundImage = Properties.Resources.orange;
+            }
+            else { 
+                Namebutton1.BackgroundImage = Properties.Resources.red;
+            }
+        }
+
+        private void Namebutton2_TextChanged(object sender, EventArgs e)
+        {
+            if (int.Parse(Namebutton2.Text) <= Bools.GreenButton)
+            {
+                Namebutton2.BackgroundImage = Properties.Resources.green;
+            }
+            else if (int.Parse(Namebutton2.Text) <= Bools.OrangeButton)
+            {
+                Namebutton2.BackgroundImage = Properties.Resources.orange;
+            }
+            else
+            {
+                Namebutton2.BackgroundImage = Properties.Resources.red;
+            }
+        }
+
+        private void Namebutton3_TextChanged(object sender, EventArgs e)
+        {
+            if (int.Parse(Namebutton3.Text) <= Bools.GreenButton)
+            {
+                Namebutton3.BackgroundImage = Properties.Resources.green;
+            }
+            else if (int.Parse(Namebutton3.Text) <= Bools.OrangeButton)
+            {
+                Namebutton3.BackgroundImage = Properties.Resources.orange;
+            }
+            else
+            {
+                Namebutton3.BackgroundImage = Properties.Resources.red;
+            }
+        }
+
+        private void Namebutton4_TextChanged(object sender, EventArgs e)
+        {
+            if (int.Parse(Namebutton4.Text) <= Bools.GreenButton)
+            {
+                Namebutton4.BackgroundImage = Properties.Resources.green;
+            }
+            else if (int.Parse(Namebutton4.Text) <= Bools.OrangeButton)
+            {
+                Namebutton4.BackgroundImage = Properties.Resources.orange;
+            }
+            else
+            {
+                Namebutton4.BackgroundImage = Properties.Resources.red;
+            }
+        }
+
+        private void Namebutton5_TextChanged(object sender, EventArgs e)
+        {
+            if (int.Parse(Namebutton5.Text) <= Bools.GreenButton)
+            {
+                Namebutton5.BackgroundImage = Properties.Resources.green;
+            }
+            else if (int.Parse(Namebutton5.Text) <= Bools.OrangeButton)
+            {
+                Namebutton5.BackgroundImage = Properties.Resources.orange;
+            }
+            else
+            {
+                Namebutton5.BackgroundImage = Properties.Resources.red;
+            }
+        }
+
+        public void Start2plus()
+        {
+            while (true)
+            {
+
+                //System.Threading.Thread.Sleep(50);
+            }
+        }
+        public void LuckyGuyTurn1() { LuckyGuyALLOFF(); NameBox1.BackColor = Color.Gainsboro; }
+        public void LuckyGuyTurn2() { LuckyGuyALLOFF(); NameBox2.BackColor = Color.Gainsboro; }
+        public void LuckyGuyTurn3() { LuckyGuyALLOFF(); NameBox3.BackColor = Color.Gainsboro; }
+        public void LuckyGuyTurn4() { LuckyGuyALLOFF(); NameBox4.BackColor = Color.Gainsboro; }
+        public void LuckyGuyTurn5() { LuckyGuyALLOFF(); NameBox5.BackColor = Color.Gainsboro; }
+        public void LuckyGuyALLOFF(){NameBox1.BackColor = Color.Transparent;NameBox2.BackColor = Color.Transparent;NameBox3.BackColor = Color.Transparent;NameBox4.BackColor = Color.Transparent;NameBox5.BackColor = Color.Transparent;}
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Thread thread = new Thread(new ThreadStart(Start2plus));
+            thread.Start();
         }
     }
 }

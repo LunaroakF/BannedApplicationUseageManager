@@ -107,7 +107,11 @@
     <None Include="Github.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="yellow.png" />
+    <None Include="red.png" />
+    <None Include="green.png" />
     <Content Include="Icon.ico" />
+    <None Include="Resources\red.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
