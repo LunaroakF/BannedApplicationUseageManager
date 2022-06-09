@@ -36,6 +36,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.详细 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -60,25 +62,32 @@
             this.nameoutput2 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.NameBox5 = new System.Windows.Forms.GroupBox();
             this.NamePause5 = new System.Windows.Forms.Label();
             this.NameLast5 = new System.Windows.Forms.Label();
+            this.Namebutton5 = new System.Windows.Forms.Button();
             this.NameBox4 = new System.Windows.Forms.GroupBox();
             this.NamePause4 = new System.Windows.Forms.Label();
             this.NameLast4 = new System.Windows.Forms.Label();
+            this.Namebutton4 = new System.Windows.Forms.Button();
             this.NameBox3 = new System.Windows.Forms.GroupBox();
             this.NamePause3 = new System.Windows.Forms.Label();
             this.NameLast3 = new System.Windows.Forms.Label();
+            this.Namebutton3 = new System.Windows.Forms.Button();
             this.NameBox2 = new System.Windows.Forms.GroupBox();
             this.NamePause2 = new System.Windows.Forms.Label();
             this.NameLast2 = new System.Windows.Forms.Label();
+            this.Namebutton2 = new System.Windows.Forms.Button();
             this.NameBox1 = new System.Windows.Forms.GroupBox();
             this.NamePause1 = new System.Windows.Forms.Label();
             this.NameLast1 = new System.Windows.Forms.Label();
+            this.Namebutton1 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.history = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.repeat = new System.Windows.Forms.Label();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
@@ -91,27 +100,21 @@
             this.label2 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.timer5 = new System.Windows.Forms.Timer(this.components);
-            this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.Namebutton5 = new System.Windows.Forms.Button();
-            this.Namebutton4 = new System.Windows.Forms.Button();
-            this.Namebutton3 = new System.Windows.Forms.Button();
-            this.Namebutton2 = new System.Windows.Forms.Button();
-            this.Namebutton1 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.详细.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.定时.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -126,7 +129,6 @@
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.关于.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -203,6 +205,26 @@
             this.groupBox6.TabIndex = 6;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "控制对象";
+            // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(94, 100);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 21);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "[锁定]hosts";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(94, 22);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(75, 75);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 7;
+            this.pictureBox4.TabStop = false;
             // 
             // checkBox1
             // 
@@ -426,6 +448,8 @@
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.label14);
+            this.groupBox7.Controls.Add(this.checkBox4);
             this.groupBox7.Controls.Add(this.nameoutput2);
             this.groupBox7.Controls.Add(this.label16);
             this.groupBox7.Controls.Add(this.button6);
@@ -476,6 +500,20 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
+            // button4
+            // 
+            this.button4.BackgroundImage = global::BannedApplicationUseageManager.Properties.Resources.exchange;
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(341, 8);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(20, 20);
+            this.button4.TabIndex = 10;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // NameBox5
             // 
             this.NameBox5.Controls.Add(this.NamePause5);
@@ -509,6 +547,24 @@
             this.NameLast5.Size = new System.Drawing.Size(67, 17);
             this.NameLast5.TabIndex = 1;
             this.NameLast5.Text = "上次:[从未]";
+            // 
+            // Namebutton5
+            // 
+            this.Namebutton5.BackColor = System.Drawing.Color.Transparent;
+            this.Namebutton5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Namebutton5.BackgroundImage")));
+            this.Namebutton5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Namebutton5.Enabled = false;
+            this.Namebutton5.FlatAppearance.BorderSize = 0;
+            this.Namebutton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Namebutton5.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Namebutton5.Location = new System.Drawing.Point(4, 21);
+            this.Namebutton5.Margin = new System.Windows.Forms.Padding(2);
+            this.Namebutton5.Name = "Namebutton5";
+            this.Namebutton5.Size = new System.Drawing.Size(40, 40);
+            this.Namebutton5.TabIndex = 0;
+            this.Namebutton5.Text = "999";
+            this.Namebutton5.UseVisualStyleBackColor = false;
+            this.Namebutton5.TextChanged += new System.EventHandler(this.Namebutton5_TextChanged);
             // 
             // NameBox4
             // 
@@ -544,6 +600,24 @@
             this.NameLast4.TabIndex = 1;
             this.NameLast4.Text = "上次:[从未]";
             // 
+            // Namebutton4
+            // 
+            this.Namebutton4.BackColor = System.Drawing.Color.Transparent;
+            this.Namebutton4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Namebutton4.BackgroundImage")));
+            this.Namebutton4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Namebutton4.Enabled = false;
+            this.Namebutton4.FlatAppearance.BorderSize = 0;
+            this.Namebutton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Namebutton4.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Namebutton4.Location = new System.Drawing.Point(4, 21);
+            this.Namebutton4.Margin = new System.Windows.Forms.Padding(2);
+            this.Namebutton4.Name = "Namebutton4";
+            this.Namebutton4.Size = new System.Drawing.Size(40, 40);
+            this.Namebutton4.TabIndex = 0;
+            this.Namebutton4.Text = "999";
+            this.Namebutton4.UseVisualStyleBackColor = false;
+            this.Namebutton4.TextChanged += new System.EventHandler(this.Namebutton4_TextChanged);
+            // 
             // NameBox3
             // 
             this.NameBox3.Controls.Add(this.NamePause3);
@@ -578,6 +652,24 @@
             this.NameLast3.TabIndex = 1;
             this.NameLast3.Text = "上次:[从未]";
             // 
+            // Namebutton3
+            // 
+            this.Namebutton3.BackColor = System.Drawing.Color.Transparent;
+            this.Namebutton3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Namebutton3.BackgroundImage")));
+            this.Namebutton3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Namebutton3.Enabled = false;
+            this.Namebutton3.FlatAppearance.BorderSize = 0;
+            this.Namebutton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Namebutton3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Namebutton3.Location = new System.Drawing.Point(4, 21);
+            this.Namebutton3.Margin = new System.Windows.Forms.Padding(2);
+            this.Namebutton3.Name = "Namebutton3";
+            this.Namebutton3.Size = new System.Drawing.Size(40, 40);
+            this.Namebutton3.TabIndex = 0;
+            this.Namebutton3.Text = "999";
+            this.Namebutton3.UseVisualStyleBackColor = false;
+            this.Namebutton3.TextChanged += new System.EventHandler(this.Namebutton3_TextChanged);
+            // 
             // NameBox2
             // 
             this.NameBox2.Controls.Add(this.NamePause2);
@@ -611,6 +703,24 @@
             this.NameLast2.Size = new System.Drawing.Size(67, 17);
             this.NameLast2.TabIndex = 1;
             this.NameLast2.Text = "上次:[从未]";
+            // 
+            // Namebutton2
+            // 
+            this.Namebutton2.BackColor = System.Drawing.Color.Transparent;
+            this.Namebutton2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Namebutton2.BackgroundImage")));
+            this.Namebutton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Namebutton2.Enabled = false;
+            this.Namebutton2.FlatAppearance.BorderSize = 0;
+            this.Namebutton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Namebutton2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Namebutton2.Location = new System.Drawing.Point(4, 21);
+            this.Namebutton2.Margin = new System.Windows.Forms.Padding(2);
+            this.Namebutton2.Name = "Namebutton2";
+            this.Namebutton2.Size = new System.Drawing.Size(40, 40);
+            this.Namebutton2.TabIndex = 0;
+            this.Namebutton2.Text = "999";
+            this.Namebutton2.UseVisualStyleBackColor = false;
+            this.Namebutton2.TextChanged += new System.EventHandler(this.Namebutton2_TextChanged);
             // 
             // NameBox1
             // 
@@ -647,6 +757,24 @@
             this.NameLast1.Size = new System.Drawing.Size(67, 17);
             this.NameLast1.TabIndex = 1;
             this.NameLast1.Text = "上次:[从未]";
+            // 
+            // Namebutton1
+            // 
+            this.Namebutton1.BackColor = System.Drawing.Color.Transparent;
+            this.Namebutton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Namebutton1.BackgroundImage")));
+            this.Namebutton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Namebutton1.Enabled = false;
+            this.Namebutton1.FlatAppearance.BorderSize = 0;
+            this.Namebutton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Namebutton1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Namebutton1.Location = new System.Drawing.Point(4, 21);
+            this.Namebutton1.Margin = new System.Windows.Forms.Padding(2);
+            this.Namebutton1.Name = "Namebutton1";
+            this.Namebutton1.Size = new System.Drawing.Size(40, 40);
+            this.Namebutton1.TabIndex = 0;
+            this.Namebutton1.Text = "999";
+            this.Namebutton1.UseVisualStyleBackColor = false;
+            this.Namebutton1.TextChanged += new System.EventHandler(this.Namebutton1_TextChanged);
             // 
             // label18
             // 
@@ -697,10 +825,24 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "groupBox4";
             // 
+            // button5
+            // 
+            this.button5.BackgroundImage = global::BannedApplicationUseageManager.Properties.Resources.exchange;
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Location = new System.Drawing.Point(341, 8);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(20, 20);
+            this.button5.TabIndex = 11;
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(0, 240);
+            this.label13.Location = new System.Drawing.Point(1, 246);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(102, 17);
             this.label13.TabIndex = 8;
@@ -723,12 +865,13 @@
             this.checkBox3.AutoSize = true;
             this.checkBox3.Checked = true;
             this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox3.Location = new System.Drawing.Point(309, 239);
+            this.checkBox3.Location = new System.Drawing.Point(310, 245);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(51, 21);
             this.checkBox3.TabIndex = 6;
             this.checkBox3.Text = "记录";
             this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
             // label11
             // 
@@ -825,169 +968,6 @@
             this.label1.Text = "此软件适用于沙市五中高中2020级7班一体机软件使用限额控制\r\n以及一些乱七八糟的东西，开机自启动请手动设置\r\n作者1:何狐\r\n作者2:黎源\r\n作者3:狐冥栎\r\n" +
     "此版本处于测试阶段，欢迎至GitHub-issues栏反馈";
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // timer2
-            // 
-            this.timer2.Interval = 2;
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // timer3
-            // 
-            this.timer3.Interval = 2;
-            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
-            // 
-            // timer4
-            // 
-            this.timer4.Interval = 200;
-            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
-            // 
-            // timer5
-            // 
-            this.timer5.Interval = 200;
-            this.timer5.Tick += new System.EventHandler(this.timer5_Tick);
-            // 
-            // label3
-            // 
-            this.label3.Location = new System.Drawing.Point(94, 100);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 21);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "[锁定]hosts";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(94, 22);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(75, 75);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 7;
-            this.pictureBox4.TabStop = false;
-            // 
-            // button4
-            // 
-            this.button4.BackgroundImage = global::BannedApplicationUseageManager.Properties.Resources.exchange;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(341, 8);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(20, 20);
-            this.button4.TabIndex = 10;
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // Namebutton5
-            // 
-            this.Namebutton5.BackColor = System.Drawing.Color.Transparent;
-            this.Namebutton5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Namebutton5.BackgroundImage")));
-            this.Namebutton5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Namebutton5.Enabled = false;
-            this.Namebutton5.FlatAppearance.BorderSize = 0;
-            this.Namebutton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Namebutton5.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Namebutton5.Location = new System.Drawing.Point(4, 21);
-            this.Namebutton5.Margin = new System.Windows.Forms.Padding(2);
-            this.Namebutton5.Name = "Namebutton5";
-            this.Namebutton5.Size = new System.Drawing.Size(40, 40);
-            this.Namebutton5.TabIndex = 0;
-            this.Namebutton5.Text = "999";
-            this.Namebutton5.UseVisualStyleBackColor = false;
-            this.Namebutton5.TextChanged += new System.EventHandler(this.Namebutton5_TextChanged);
-            // 
-            // Namebutton4
-            // 
-            this.Namebutton4.BackColor = System.Drawing.Color.Transparent;
-            this.Namebutton4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Namebutton4.BackgroundImage")));
-            this.Namebutton4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Namebutton4.Enabled = false;
-            this.Namebutton4.FlatAppearance.BorderSize = 0;
-            this.Namebutton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Namebutton4.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Namebutton4.Location = new System.Drawing.Point(4, 21);
-            this.Namebutton4.Margin = new System.Windows.Forms.Padding(2);
-            this.Namebutton4.Name = "Namebutton4";
-            this.Namebutton4.Size = new System.Drawing.Size(40, 40);
-            this.Namebutton4.TabIndex = 0;
-            this.Namebutton4.Text = "999";
-            this.Namebutton4.UseVisualStyleBackColor = false;
-            this.Namebutton4.TextChanged += new System.EventHandler(this.Namebutton4_TextChanged);
-            // 
-            // Namebutton3
-            // 
-            this.Namebutton3.BackColor = System.Drawing.Color.Transparent;
-            this.Namebutton3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Namebutton3.BackgroundImage")));
-            this.Namebutton3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Namebutton3.Enabled = false;
-            this.Namebutton3.FlatAppearance.BorderSize = 0;
-            this.Namebutton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Namebutton3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Namebutton3.Location = new System.Drawing.Point(4, 21);
-            this.Namebutton3.Margin = new System.Windows.Forms.Padding(2);
-            this.Namebutton3.Name = "Namebutton3";
-            this.Namebutton3.Size = new System.Drawing.Size(40, 40);
-            this.Namebutton3.TabIndex = 0;
-            this.Namebutton3.Text = "999";
-            this.Namebutton3.UseVisualStyleBackColor = false;
-            this.Namebutton3.TextChanged += new System.EventHandler(this.Namebutton3_TextChanged);
-            // 
-            // Namebutton2
-            // 
-            this.Namebutton2.BackColor = System.Drawing.Color.Transparent;
-            this.Namebutton2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Namebutton2.BackgroundImage")));
-            this.Namebutton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Namebutton2.Enabled = false;
-            this.Namebutton2.FlatAppearance.BorderSize = 0;
-            this.Namebutton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Namebutton2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Namebutton2.Location = new System.Drawing.Point(4, 21);
-            this.Namebutton2.Margin = new System.Windows.Forms.Padding(2);
-            this.Namebutton2.Name = "Namebutton2";
-            this.Namebutton2.Size = new System.Drawing.Size(40, 40);
-            this.Namebutton2.TabIndex = 0;
-            this.Namebutton2.Text = "999";
-            this.Namebutton2.UseVisualStyleBackColor = false;
-            this.Namebutton2.TextChanged += new System.EventHandler(this.Namebutton2_TextChanged);
-            // 
-            // Namebutton1
-            // 
-            this.Namebutton1.BackColor = System.Drawing.Color.Transparent;
-            this.Namebutton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Namebutton1.BackgroundImage")));
-            this.Namebutton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Namebutton1.Enabled = false;
-            this.Namebutton1.FlatAppearance.BorderSize = 0;
-            this.Namebutton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Namebutton1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Namebutton1.Location = new System.Drawing.Point(4, 21);
-            this.Namebutton1.Margin = new System.Windows.Forms.Padding(2);
-            this.Namebutton1.Name = "Namebutton1";
-            this.Namebutton1.Size = new System.Drawing.Size(40, 40);
-            this.Namebutton1.TabIndex = 0;
-            this.Namebutton1.Text = "999";
-            this.Namebutton1.UseVisualStyleBackColor = false;
-            this.Namebutton1.TextChanged += new System.EventHandler(this.Namebutton1_TextChanged);
-            // 
-            // button5
-            // 
-            this.button5.BackgroundImage = global::BannedApplicationUseageManager.Properties.Resources.exchange;
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(341, 8);
-            this.button5.Margin = new System.Windows.Forms.Padding(2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(20, 20);
-            this.button5.TabIndex = 11;
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::BannedApplicationUseageManager.Properties.Resources.Github;
@@ -1018,6 +998,53 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 2;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // timer3
+            // 
+            this.timer3.Interval = 2;
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            // 
+            // timer4
+            // 
+            this.timer4.Interval = 200;
+            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
+            // 
+            // timer5
+            // 
+            this.timer5.Interval = 200;
+            this.timer5.Tick += new System.EventHandler(this.timer5_Tick);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(1, 246);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(102, 17);
+            this.label14.TabIndex = 15;
+            this.label14.Text = "不重复次数:NULL";
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Checked = true;
+            this.checkBox4.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox4.Location = new System.Drawing.Point(310, 245);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(51, 21);
+            this.checkBox4.TabIndex = 14;
+            this.checkBox4.Text = "记录";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            // 
             // ControlBar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1040,6 +1067,7 @@
             this.详细.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.定时.ResumeLayout(false);
@@ -1066,7 +1094,6 @@
             this.groupBox4.PerformLayout();
             this.关于.ResumeLayout(false);
             this.关于.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1154,5 +1181,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.CheckBox checkBox4;
     }
 }

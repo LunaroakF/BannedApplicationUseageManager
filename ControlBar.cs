@@ -38,7 +38,6 @@ namespace BannedApplicationUseageManager
             timer1.Enabled = false;
             Bools.remaintime = 0;
             Bools.IsControlBarCreated = false;
-            //Bools.IsEnable = true;
         }
     public void ReloadRandom()
         {
@@ -70,7 +69,6 @@ namespace BannedApplicationUseageManager
             this.groupBox4.Text = "将于"+date+"午间上台讲数学题的同学位于";
             this.groupBox7.Text = "将于" + date + "午间上台讲数学题的同学";
             this.Text = Bools.ControlBarName;
-            
             try
             {
                 if (File.Exists(@Bools.RunPlace + "BAUM_Settings/students_table.inf")) //检测是否存在学生数据目录
@@ -92,11 +90,9 @@ namespace BannedApplicationUseageManager
                 Bools.AlreadyPai = 6;
                 Bools.AlreadyZuo = new int[] { 9,8,9,9,8,9};
                 Bools.NotRepeat = 40;
-               // MessageBox.Show("non");
-                //Bools.AlreadyZuo = 
-
             }
-            this.label13.Text = "不重复次数:" + Bools.NotRepeat.ToString();  
+            this.label13.Text = "不重复次数:" + Bools.NotRepeat.ToString();
+            this.label14.Text = "不重复次数:" + Bools.NotRepeat.ToString();
             HistoryFresh();
             ReloadRandom();
             this.TopMost = false;
@@ -105,8 +101,6 @@ namespace BannedApplicationUseageManager
                 Thread thread = new Thread(new ThreadStart(changeCard));
                 thread.Start();
             }
-
-
         }
         public void HistoryFresh()
         {
@@ -127,7 +121,6 @@ namespace BannedApplicationUseageManager
                     if ((line.Length - i - 1) == Bools.NotRepeat)
                     {
                         main = "------------------------------" + Environment.NewLine + main;
-                        
                     }
                 }
                 history.Text = main;
@@ -143,7 +136,6 @@ namespace BannedApplicationUseageManager
                 return false;
             }
         }
-
         public void LoadVIPCards()
         {
             string[] Guys;
@@ -181,12 +173,8 @@ namespace BannedApplicationUseageManager
                     for (int i = line2.Length-1; i >=1; i--)
                     {
                         string[] a = line2[i].Split('-');
-                        //MessageBox.Show(a[1]);
-
-                        //MessageBox.Show(Guys[2]);
                         if (a[1] == Guys[0]&&wt1){
                             try {
-                                
                                 NameLast1.Text = "上次:" + a[0];
                                 Namebutton1.Text = (line2.Length-i).ToString();
                                 if ((line2.Length - i) <= Bools.GreenButton) { Name1_Value = 0; }
@@ -280,25 +268,18 @@ namespace BannedApplicationUseageManager
                 }
             }
         }
-
         public void changeCard()
         {
-            //MessageBox.Show("重载");
-            //System.Threading.Thread.Sleep(1000);
             groupBox7.Location = groupBox4.Location;
             groupBox4.Enabled = false;
             LuckyGuyALLRED();
-            System.Threading.Thread.Sleep(50);
+            //System.Threading.Thread.Sleep(50);
             groupBox4.Visible = false;
-            //groupBox7.Enabled = true;
             LoadVIPCards();
             LuckyGuyALLOFF();
-            //button5.Text = "切换";
-            //groupBox7.Visible = true;
             button5.Enabled = true;
             button4.Enabled = true;
         }
-
         public void UpdateLog()
         {
             this.Log.Text = Bools.Log;
@@ -313,7 +294,6 @@ namespace BannedApplicationUseageManager
         }
         public void SaveChanges()
         {
-            //MessageBox.Show(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
             if (Bools.driveName != null)
             {
                 if (File.Exists(Bools.driveName + "DAKey"))//检测密钥文件是否存在
@@ -324,13 +304,11 @@ namespace BannedApplicationUseageManager
                         if (!checkBox1.Checked)
                         {
                             Bools.IsEnable = false;
-                            //this.label4.Visible = true;
                             MessageBox.Show("保存成功" + Environment.NewLine + "限制状态: 关闭", "完成", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         else
                         {
                             Bools.IsEnable = true;
-                            //this.label4.Visible = false;
                             MessageBox.Show("保存成功" + Environment.NewLine + "限制状态: 启用", "完成", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
 
@@ -346,13 +324,11 @@ namespace BannedApplicationUseageManager
             if (PasswordBox.Text == Bools.Passwords && !checkBox1.Checked)
             {
                 Bools.IsEnable = false;
-                //this.label4.Visible = true;
                 MessageBox.Show("保存成功" + Environment.NewLine + "限制状态: 关闭", "完成", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (PasswordBox.Text == Bools.Passwords && checkBox1.Checked)
             {
                 Bools.IsEnable = true;
-                //this.label4.Visible = false;
                 MessageBox.Show("保存成功" + Environment.NewLine + "限制状态: 启用", "完成", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
@@ -362,7 +338,6 @@ namespace BannedApplicationUseageManager
                 else
                     MessageBox.Show("凭据不工作" + Environment.NewLine + "当前使用凭据: 仅密码", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
             if (Bools.IsEnable)
             {
                 Bools.ControlBarName = "ControlBar v" + Bools.Version;
@@ -384,9 +359,7 @@ namespace BannedApplicationUseageManager
                 catch { }
             }
             this.Text = Bools.ControlBarName;
-
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             SaveChanges();
@@ -462,8 +435,6 @@ namespace BannedApplicationUseageManager
             this.label6.Text = Bools.remaintime.ToString();
             freshProgressBar();
             this.Text = Bools.ControlBarName + " - " + Bools.remaintime.ToString() + " 秒剩余";
-            //
-
             if (Bools.remaintime <= 0)
             {
                 timer1.Enabled = false;
@@ -575,7 +546,6 @@ namespace BannedApplicationUseageManager
             Bools.zuo++;
             if (Bools.zuo > Bools.AlreadyZuo[Bools.pai-1])
                 Bools.zuo = 1;
-
             label10.Text = "第" + Bools.zuo.ToString() + "座";
         }
         private void timer4_Tick(object sender, EventArgs e)
@@ -630,12 +600,10 @@ namespace BannedApplicationUseageManager
                 {
                     Random rd2 = new Random();
                     Bools.zuo = rd2.Next(1, Bools.AlreadyZuo[Bools.pai-1]+1);
-
                     if (Bools.IsControlBarCreated)
                     {
                         label9.Text = "第" + Bools.pai.ToString() + "条";
                         label10.Text = "第" + Bools.zuo.ToString() + "座";
-
                         System.Threading.Thread.Sleep(10);
                     }
                     int se = CountSe(Bools.pai, Bools.zuo);
@@ -659,7 +627,6 @@ namespace BannedApplicationUseageManager
                     Random rd1 = new Random();
                     Bools.pai = rd1.Next(1, Bools.AlreadyPai+1);
                 }
-                //System.Threading.Thread.Sleep(200);
             }
         }
         public int CountSe(int pai, int zuo) {
@@ -673,7 +640,6 @@ namespace BannedApplicationUseageManager
                 }
                 result = exist;
             }
-            //MessageBox.Show(result.ToString());
             return result;
         }
         public bool MathEnd(string Name)
@@ -709,7 +675,6 @@ namespace BannedApplicationUseageManager
                 }
             }
         }
-
         public string[] MathHistorySetOutStudentsName(string[] line)
         {
             string[] Array=new string[] {"//New!"};
@@ -745,14 +710,11 @@ namespace BannedApplicationUseageManager
                 return "//NoneStudentName//";
             }
         }
-
         private void PasswordBox_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyValue==13)
                 SaveChanges();
-
         }
-
         private void button4_Click(object sender, EventArgs e)
         {
             //button4.Text = "加载";
@@ -765,7 +727,6 @@ namespace BannedApplicationUseageManager
             //groupBox7.Visible = false;
             //button4.Text = "切换";
         }
-
         private void button5_Click(object sender, EventArgs e)
         {
             //button5.Text = "加载";
@@ -773,9 +734,7 @@ namespace BannedApplicationUseageManager
             groupBox4.Enabled = false;
             Thread thread = new Thread(new ThreadStart(changeCard));
             thread.Start();
-            
         }
-
         private void Namebutton1_TextChanged(object sender, EventArgs e)
         {
             if (int.Parse(Namebutton1.Text) <= Bools.GreenButton)
@@ -835,7 +794,6 @@ namespace BannedApplicationUseageManager
                 Namebutton4.BackgroundImage = Properties.Resources.red;
             }
         }
-
         private void Namebutton5_TextChanged(object sender, EventArgs e)
         {
             if (int.Parse(Namebutton5.Text) <= Bools.GreenButton)
@@ -937,10 +895,9 @@ namespace BannedApplicationUseageManager
             Namebutton4.Text = "-1";
             Namebutton5.Text = "-1";
         }
-
         public void button6_Click_Branch1()
         {
-            System.Threading.Thread.Sleep(1500);
+            System.Threading.Thread.Sleep(2100);
             //button6.Text = "开始";
             button6.Enabled = true;
         }
@@ -961,7 +918,7 @@ namespace BannedApplicationUseageManager
             nameoutput2.Visible = true;
             if (!Bools.SecondPlusRunning)
             {
-                button6.Enabled = false;
+                //button6.Enabled = false;
                 button6.Text="停止";
                 Bools.SecondPlusRunning = true;
                 Thread thread = new Thread(new ThreadStart(Start2plus));
@@ -977,7 +934,13 @@ namespace BannedApplicationUseageManager
             Thread thread0 = new Thread(new ThreadStart(button6_Click_Branch1));
             thread0.Start();
         }
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBox3.Checked = checkBox4.Checked;
         }
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBox4.Checked = checkBox3.Checked;
+        }
+    }
 }
-
-
