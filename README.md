@@ -3,6 +3,7 @@
 
 # 解锁密码
 ![Image text](https://github.com/LunaroakF/Images/blob/master/BannedApplicationUseageManager/v1.1.10%201.png)  
+![Image text](https://github.com/LunaroakF/Images/blob/master/BannedApplicationUseageManager/v1.2.1%202.png)  
 - 在Bools.cs中进行修改，默认为123456
 
 # 支持移动存储介质解锁  
